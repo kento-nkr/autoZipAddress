@@ -19,6 +19,7 @@ function autoZipAddress()
             const input_value = state.record[obj.zip].value.replaceAll("-", "");  //ハイフンを取り除く
             if (input_value.length == 7)
             {
+                const KC = new KanaConverter();
                 const post_url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=";
                 const res = fetch(post_url + input_value.toString(), {
                     timeout: 10000,
