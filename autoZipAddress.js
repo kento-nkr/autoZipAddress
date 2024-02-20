@@ -56,7 +56,3 @@ function autoZipAddress()
         });
     });
 }
-
-
-const KC = new KanaConverter();
-autoZipAddress();
