@@ -1,7 +1,3 @@
-const KC = KanaConverter();
-autoZipAddress();
-
-
 const ADDRESS_FIELDCODE_OBJARRAY = [
     {//FBフィールドコード
         zip: "郵便番号",
@@ -209,3 +205,6 @@ class KanaConverter
         return convertedString;
     }
 };
+
+const KC = KanaConverter();
+autoZipAddress();
