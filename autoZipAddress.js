@@ -11,6 +11,11 @@
 
 function autoZipAddress(fieldcode_obj)
 {
+    if (!fieldcode_obj.hasOwnProperty("zip"))
+    {
+        console.error("autoZipAddress(fieldcode_obj) argument required zip property.");
+        return;
+    }
     fb.events.fields[fieldcode_obj.zip].changed.push((state) =>
     {
         const input_value = state.record[fieldcode_obj.zip].value.replaceAll("-", "");  //ハイフンを取り除く
