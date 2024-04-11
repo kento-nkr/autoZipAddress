@@ -1,14 +1,3 @@
-// const fieldcode_obj = [
-//     {//FBフィールドコード
-//         zip: "郵便番号",
-//         state: "住所1",
-//         city: "住所2",
-//         addressLine: "住所3",
-//         city_ruby: "住所2カナ",
-//         addressLine_ruby: "住所3カナ",
-//     },
-// ];
-
 function autoZipAddress(fieldcode_obj)
 {
     if (!fieldcode_obj.hasOwnProperty("zip"))
@@ -59,3 +48,25 @@ function autoZipAddress(fieldcode_obj)
     });
 }
 
+function loadKanaConverter()
+{
+    const url = "https://cdn.jsdelivr.net/gh/kento-nkr/kana_converter/KanaConverter.js"
+    return new Promise((resolve, reject) =>
+    {
+        let script = document.createElement("script");
+        script.onload = resolve;
+        script.onerror = reject;
+        script.src = url;
+
+        document.head.appendChild(script);
+    });
+}
+
+try
+{
+    new KanaConverter()
+}
+catch (e)
+{
+    loadKanaConverter()
+}
