@@ -33,13 +33,19 @@ function autoZipAddress(fieldcode_obj)
                             {
                                 const fetch_reesult = data.results[0]
                                 console.log("fetch result : ", fetch_reesult);
+                                state.record[fieldcode_obj.state].value = ""
+                                state.record[fieldcode_obj.city].value = ""
+                                state.record[fieldcode_obj.addressLine].value = ""
+                                state.record[fieldcode_obj.city_ruby].value = ""
+                                state.record[fieldcode_obj.addressLine_ruby].value = ""
+
                                 state.record[fieldcode_obj.zip].value = input_value.slice(0, 3) + "-" + input_value.slice(3);
-                                state.record[fieldcode_obj.state].value = fetch_reesult.address1;
-                                state.record[fieldcode_obj.city].value = fetch_reesult.address2;
-                                state.record[fieldcode_obj.addressLine].value = fetch_reesult.address3;
+                                state.record[fieldcode_obj.state].value += fetch_reesult.address1;
+                                state.record[fieldcode_obj.city].value += fetch_reesult.address2;
+                                state.record[fieldcode_obj.addressLine].value += fetch_reesult.address3;
                                 // state.record[fieldcode_obj.state_ruby].value = KC.halfToFull(fetch_reesult.kana1);
-                                state.record[fieldcode_obj.city_ruby].value = KC.halfToFull(fetch_reesult.kana2);
-                                state.record[fieldcode_obj.addressLine_ruby].value = KC.halfToFull(fetch_reesult.kana3);
+                                state.record[fieldcode_obj.city_ruby].value += KC.halfToFull(fetch_reesult.kana2);
+                                state.record[fieldcode_obj.addressLine_ruby].value += KC.halfToFull(fetch_reesult.kana3);
                             }
                     }
                     return state;
