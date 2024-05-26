@@ -98,6 +98,7 @@ class KanaConverter_azp {
 }
 
 const CONVERSIONMAP_azp = [
+  { half: " ", full: "　" },
   { half: "ｶﾞ", full: "ガ" },
   { half: "ｷﾞ", full: "ギ" },
   { half: "ｸﾞ", full: "グ" },
