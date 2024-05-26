@@ -56,16 +56,20 @@ function autoZipAddress(fieldcode_obj)
 
 function loadKanaConverter()
 {
-    const url = "https://cdn.jsdelivr.net/gh/kento-nkr/kana_converter/KanaConverter.js"
-    return new Promise((resolve, reject) =>
-    {
-        let script = document.createElement("script");
-        script.onload = resolve;
-        script.onerror = reject;
-        script.src = url;
+  if (typeof KanaConverter === "undefined") {
+    const url =
+      "https://cdn.jsdelivr.net/gh/kento-nkr/kana_converter/KanaConverter.js";
+    return new Promise((resolve, reject) => {
+      let script = document.createElement("script");
+      script.onload = resolve;
+      script.onerror = reject;
+      script.src = url;
 
-        document.head.appendChild(script);
+      document.head.appendChild(script);
     });
+  } else {
+    return Promise.resolve();
+  }
 }
 
 try
