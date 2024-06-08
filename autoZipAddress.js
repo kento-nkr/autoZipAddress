@@ -62,7 +62,7 @@ function autoZipAddress(fieldcode_obj) {
 
 class KanaConverter_azp {
   constructor() {
-    this.conversionMap = CONVERSIONMAP;
+    this.conversionMap = CONVERSIONMAP_azp;
   }
 
   halfToFull(str) {
